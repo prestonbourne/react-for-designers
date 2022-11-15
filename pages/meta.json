@@ -1,7 +1,6 @@
 {
-  "index": "Introduction",
-  "get-started": "Get Started",
-  "features": "Features",
-  "themes": "Themes",
-  "advanced": "Advanced"
+"index": "Overview",
+"getting-started": "Getting Started",
+  "first-steps": "React: First Steps",
+  "basics": "The Basics"
 }
