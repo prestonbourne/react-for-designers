@@ -1,7 +1,7 @@
 export default {
-  github: 'https://github.com/shuding/nextra',
-  docsRepositoryBase: 'https://github.com/shuding/nextra/blob/master',
-  titleSuffix: ' – Nextra',
+  github: 'https://github.com/Saintpreston/react-for-designers',
+  titleSuffix: '',
+  floatTOC: true,
   logo: (
     <>
       <span className="mr-2 font-extrabold hidden md:inline">React For Designers</span>
@@ -62,6 +62,6 @@ export default {
   nextLinks: true,
   footer: true,
   footerEditLink: 'Edit this page on GitHub',
-  footerText: <>MIT {new Date().getFullYear()} © Nextra.</>,
-  unstable_faviconGlyph: '👋',
+  footerText: <>Built by Preston with Nextra ❤️</>,
+  unstable_faviconGlyph: '❤️',
 }
