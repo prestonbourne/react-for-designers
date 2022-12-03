@@ -1,0 +1,101 @@
+import Bleed from 'nextra-theme-docs/bleed'
+import Image from 'next/image'
+
+# JSX
+
+TLDR; It's HTML in JavaScript. However there's some nuance that you should know about.
+
+## What is JSX?
+
+It is a syntax extension to JavaScript. Instead of HTML We use it with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript.
+
+
+## Why JSX?
+
+Imagine we design something and we need to add a list item whenever a user clicks a button.
+
+Consider this block of code
+```html
+<button>Add Item</button>
+
+<ul>
+ <li>Item 1</li>
+ <li>Item 2</li>
+</ul>
+```
+We should get something like this:
+
+<Image src="/jsx/simple-html.png" width={500} height={200}/>
+
+
+
+Now hopefully you've worked with [DOM events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events) in VanillaJs. To make this work we'd need to have something like the code below.
+
+```js
+const button = document.getElementsByTagName[0];
+
+button.addEventListener("click", function addListItem(){
+ /* logic to add list item */
+})
+```
+This would live in an seperate .js file. But what if I told you with JSX... this is how we add the event.
+
+```jsx
+<button onClick={addListItem} >Add Item</button>
+<ul>
+ <li>Item 1</li>
+ <li>Item 2</li>
+</ul>
+```
+
+This is one of the first concepts you should understand...under the hood - react is adding the event the old fashioned way, but because it allows us to be declarative. 
+
+We can inject our JavaScript function right into the jsx using ``{}``
+
+
+Infact what if I told you...we can make this even more concise by making our jsx a variable before. 
+
+Play around with the code sandbox below...there's gonna be some stuff you don't understand yet but you should be able to pick out the relevant line.
+
+<iframe src="https://codesandbox.io/embed/happy-oskar-rjhx8j?fontsize=14&hidenavigation=1&theme=dark"
+     style={{width:'100%', height:'500px', border:0, borderRadius: '4px', overflow:'hidden'}}
+ 
+     title="happy-oskar-rjhx8j"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+ 
+*Hint hint* it's line 13   
+```jsx 
+const renderList = list.map((n, i) => <li key={i}>Item {n}</li>);
+```
+
+This is a **very** common thing you'll do in React. Think about your vanilla js knowledge and get a refresher on [`Array.map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map);
+
+For every element in our the list variable -> return the following jsx...and just as previously mentioned we can inject the current element with `{}`
+
+
+
+
+## Styling JSX?
+
+If you consider that React is just compiling our jsx down to standard HTML and JavaScript. You should be able to style it with regular CSS right. 
+
+Well yes, you are right, you can even use [inline styling](https://reactjs.org/docs/dom-elements.html#style) similar to the way you would in regular HTML - however just like with regular HTMl - this isn't a best practice.
+
+Chances are a FrontEnd Engineer is using a technology like a CSS preprocessor like [Sass](https://sass-lang.com/) or CSS-in-JS library like [styled components](https://styled-components.com/).
+
+
+One of my favorite ways to style a react app is using the simple and intuitive [CSS Modules](https://css-tricks.com/css-modules-part-1-need/). This allows you to scope your css to a single component. 
+
+I won't get into the nitty gritty of it now but the main caveat you have to remember in your JSX is that `class` is a reserved keyword in JavaScript.
+
+To prevent confusing the compiler instead of writing 
+```html
+<button class="elevated"></button>
+```
+
+We write 
+```jsx
+<button className="elevated"></button>
+```
