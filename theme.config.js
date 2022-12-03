@@ -6,7 +6,7 @@ export default {
     <>
       <span className="mr-2 font-extrabold hidden md:inline">React For Designers</span>
       <span className="text-gray-600 font-normal hidden md:inline">
-       Rethinking our prototyping tools
+       Code as a Design Tool
       </span>
     </>
   ),
@@ -61,7 +61,8 @@ export default {
   prevLinks: true,
   nextLinks: true,
   footer: true,
-  footerEditLink: 'Edit this page on GitHub',
+  // footerEditLink: 'Edit this page on Github',
+  // footerEditOnGithubLink: true,
   footerText: <>Built by Preston with Nextra ❤️</>,
   unstable_faviconGlyph: '❤️',
 }

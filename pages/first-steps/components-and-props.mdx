@@ -1,95 +1,69 @@
-# Get Started
-
-## Quick Start with Vercel
-
-You can start by creating your own Nextra site and deploying to Vercel by clicking the link:
-
-[![](https://vercel.com/button)](https://vercel.com/new/clone?demo-description=Markdown%20powered%20docs%20site.%20Built%20with%20Next.js.&demo-image=https%3A%2F%2Fnextra.vercel.app%2Fdemo.png&demo-title=Documentation%20Starter%20Kit&demo-url=https%3A%2F%2Fnextra.vercel.app%2F&project-name=nextjs-docs&repository-name=nextjs-docs&s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra&from=templates)
-
-Vercel will create the Nextra repository and deploy the site for you with just a few clicks.  
-Once done, every change in the repository will be deployed automatically.
-
-## Create Manually
-
-Nextra works like a Next.js plugin, and it accepts a theme config (layout) to render the page. To start:
-
-1. Install Next.js, Nextra and React: `yarn add next nextra react react-dom`
-
-2. Install the docs theme (you can use any theme you like): `yarn add nextra-theme-docs`
-
-3. Create the following `next.config.js` file:
-
-```jsx
-// next.config.js
-const withNextra = require('nextra')({
-  theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.js',
-  // optional: add `unstable_staticImage: true` to enable Nextra's auto image import
-})
-module.exports = withNextra()
-```
-
-4. Create a `theme.config.js` file for the docs theme:
-
-```jsx
-// theme.config.js
-export default {
-  projectLink: 'https://github.com/shuding/nextra', // GitHub link in the navbar
-  docsRepositoryBase: 'https://github.com/shuding/nextra/blob/master', // base URL for the docs repository
-  titleSuffix: ' – Nextra',
-  nextLinks: true,
-  prevLinks: true,
-  search: true,
-  customSearch: null, // customizable, you can use algolia for example
-  darkMode: true,
-  footer: true,
-  footerText: `MIT ${new Date().getFullYear()} © Shu Ding.`,
-  footerEditLink: `Edit this page on GitHub`,
-  logo: (
-    <>
-      <svg>...</svg>
-      <span>Next.js Static Site Generator</span>
-    </>
-  ),
-  head: (
-    <>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="description" content="Nextra: the next docs builder" />
-      <meta name="og:title" content="Nextra: the next docs builder" />
-    </>
-  ),
-}
-```
-
 import Callout from 'nextra-theme-docs/callout'
 
-<Callout>
-  More configuration options for the docs theme can be found
-  [here](/themes/docs/configuration).
-</Callout>
+# Components && Props
 
-5. Create `pages/_app.js` and include the theme stylesheet:
+Ok, well we know about JSX but as you saw from the codesandbox on the [previous page](./jsx/) there's *still* alot to cover. Where does jsx live? The answer is in
 
+## Components
+
+Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components.
+
+Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called “props”) and return React elements describing what should appear on the screen.
+
+The simplest way to define a component is to write a JavaScript function:
 ```jsx
-import 'nextra-theme-docs/style.css'
-
-export default function Nextra({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
 }
 ```
 
-6. You are good to go! Run `yarn next` to start.
+This function is a valid React component because it accepts a single “props” (which stands for properties) object argument with data and returns a React element. We call such components “function components” because they are literally JavaScript functions.
 
----
+<Callout emoji="🚨"> JSX was initially written with an object oriented paradigm, meaning you may also encounter the components as classes (checkout the syntax below), we won't be going over this but just be aware that it exists. [Learn More](https://reactjs.org/docs/components-and-props.html) </Callout>
 
-<span id="sidebar-and-anchor-links" />
-<Callout>
-  Any `.md` or `.mdx` file will turn into a doc page and be displayed in
-  sidebar. You can also create a `meta.json` file to customize the page order
-  and title. <br /> Check the source code: https://github.com/shuding/nextra for
-  more information.
+```jsx
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+```
+
+### Rendering a component
+
+So we have our component, it's ready to accept some props but how do we mount it to the DOM?
+
+Well when we write JSX we're working with the [Virtual Dom](https://reactjs.org/docs/faq-internals.html) which is part of the magic behind React. The Virtual DOM compares before and after "snapshots" of the component tree between state updates so that only relevant HTML is rerendered.
+
+If we can think of and refer to the DOM as a tree, it makes sense that where it begins to orginate it known as the **root**
+
+This is how we append something to the root.
+
+```jsx
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+const element = <Welcome name="Designer" />;
+root.render(element); //or we could've done root.render(<Welcome name="Designer" />)
+```
+
+<Callout emoji="🚨">
+  **Bonus Challenge**
+  Prove you understand Props by replacing "Designer" with your name. For example if you're John - get the sandbox below to render "Hello, John"
 </Callout>
 
-<Callout>
-You can also use [`<style jsx>`](https://nextjs.org/docs/basic-features/built-in-css-support#css-in-js) to style elements inside `theme.config.js`.
-</Callout>
+
+<br/>
+
+<iframe src="https://codesandbox.io/embed/how-to-render-a-component-rd1smk?fontsize=14&hidenavigation=1&theme=dark"
+     style={{width:'100%', height:'500px', border:0, borderRadius: '4px', overflow: 'hidden' }}
+     title="how-to-render-a-component"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+
+
+
+
