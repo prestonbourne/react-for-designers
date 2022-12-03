@@ -1,6 +1,7 @@
 {
 "index": "Overview",
-"getting-started": "Getting Started",
   "first-steps": "React: First Steps",
-  "basics": "The Basics"
+  "hooks": "React: Hooks",
+  "getting-started": "Your First React App"
+  
 }
