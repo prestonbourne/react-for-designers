@@ -1375,7 +1375,7 @@ next@^13.0.6:
     "@next/swc-win32-ia32-msvc" "13.0.6"
     "@next/swc-win32-x64-msvc" "13.0.6"
 
-nextra-theme-docs@2.0.0:
+nextra-theme-docs@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/nextra-theme-docs/-/nextra-theme-docs-2.0.0.tgz#ec546dd68eeee51de618ab4610039ea5f3c246f0"
   integrity sha512-Bkzbx4I/q4MlhGE9/wkI+xGKQFjwE/M3hcCZY1O6vOXkKWSOZ9L7BNq77iPBOzxqdrdN3fVPh0HYMKaR9O4xHA==
@@ -1395,7 +1395,7 @@ nextra-theme-docs@2.0.0:
     next-themes "^0.2.1"
     scroll-into-view-if-needed "^2.2.29"
 
-nextra@2.0.0:
+nextra@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/nextra/-/nextra-2.0.0.tgz#c4ecb4c2d912d37cb45774bdbb65cf2493d176aa"
   integrity sha512-3mf5aX+ZJVz7HRtxwtWIo1kw51xrF5MsqoUl0cQDTbFiktCn/Af5AX1gBuiX8/Z4mSEedalvTZUfR6+LxumLFg==
