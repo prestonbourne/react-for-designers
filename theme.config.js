@@ -4,10 +4,7 @@ export default {
   floatTOC: true,
   logo: (
     <>
-      <span className="mr-2 font-extrabold hidden md:inline">React For Designers</span>
-      <span className="text-gray-600 font-normal hidden md:inline">
-       Code as a Design Tool
-      </span>
+      <span style={{fontWeight: 900}}>React For Designers</span>
     </>
   ),
   head: (
@@ -61,6 +58,7 @@ export default {
   prevLinks: true,
   nextLinks: true,
   footer: true,
+  unstable_staticImage: true,
   // footerEditLink: 'Edit this page on Github',
   // footerEditOnGithubLink: true,
   footerText: <>Built by Preston with Nextra ❤️</>,
