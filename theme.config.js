@@ -6,7 +6,7 @@ export default {
     <>
       <span style={{fontWeight:900}}>React For Designers </span>
       <span className="text-gray-600 font-normal hidden md:inline">
-       - code as a Design Tool
+        - Code as a Design Tool
       </span>
     </>
   ),
