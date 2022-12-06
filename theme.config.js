@@ -5,9 +5,6 @@ export default {
   logo: (
     <>
       <span style={{fontWeight:900}}>React For Designers </span>
-      <span className="text-gray-600 font-normal hidden md:inline">
-        - Code as a Design Tool
-      </span>
     </>
   ),
   head: (
